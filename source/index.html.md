@@ -2,13 +2,14 @@
 title: API Reference
 
 language_tabs: # must be one of https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
-  - javascript
-
+  - JS
+  - TS
+  - typings
 toc_footers:
-  - <a href='https://discord.js.org/docs/packages/discord.js/14.15.2'>Discord.JS</a>
-  - <a href='https://www.typescriptlang.org/docs/handbook/'>TypeScript</a>
-  - <a href='https://nodejs.org/api/'>Node.JS</a>
-  - <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript'>JavaScript</a>
+  - <a href='https://discord.js.org/docs/packages/discord.js/14.15.2'>Discord.JS Documentation</a>
+  - <a href='https://www.typescriptlang.org/docs/handbook/'>TypeScript Documentation</a>
+  - <a href='https://nodejs.org/api/'>Node.JS Documentation</a>
+  - <a href='https://developer.mozilla.org/en-US/docs/Web/JavaScript'>JavaScript Documentation</a>
 
 
 includes:
@@ -31,6 +32,95 @@ We have language bindings in Shell, Ruby, Python, and JavaScript! You can view c
 
 This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
+# Setup
+
+# Styles
+## ESLint
+
+
+# Extensions
+## Discord.Client Mixins
+Blah blah blah we add items to the client 
+### `settings`
+<aside class="notice">
+See <a href="#settings-2">lib/settings</a> for more details
+</aside>
+
+### `afkChecks`
+
+### `afkModules`
+<aside class="warning">
+This is deprecated and liable to removed in the near future. Use <a href="#afkChecks">afkChecks</a> whenever you need to access live afks.
+</aside>
+
+### `adminUsers`
+
+### `emojiServers`
+
+### storedEmojis
+
+## Discord.GuildMember
+## Discord.Guild
+## Discord.Message
+## Discord.ChatInputCommandInteraction
+
+# lib/
+Home to any files that aren't directly attached to a single command (extensions) or any functionality that could quality as a service (modmail). If some functionality is best split up into several files, that can also be placed as a subfolder within here (afks).
+
+## extensions & discordExtensions
+<aside class="notice">
+See <a href="#extensions">Extensions</a> for information about our current class/function extensions.
+</aside>
+
+## settings
+<details class="typedef">
+  <summary>Guild Typings</summary>
+  Specific settings properties can be found in the config-types repository.
+</details>
+
+```ts
+type GuildSettings = {;
+  roles: RolesSettings;
+  channels: ChannelsSettings;
+  voice: VoiceSettings;
+  voiceprefixes: VoiceprefixesSettings;
+  backend: BackendSettings;
+  numerical: NumericalSettings;
+  runreqs: RunreqsSettings;
+  autoveri: AutoveriSettings;
+  vetverireqs: VetverireqsSettings;
+  points: PointsSettings;
+  raiding: RaidingSettings;
+  lists: ListsSettings;
+  strings: StringsSettings;
+  quotapoints: QuotapointsSettings;
+  modmail: ModmailSettings;
+  supporter: SupporterSettings;
+  rolePermissions: RolePermissionsSettings;
+  commands: { [key: string]: boolean };
+  checkPanels: { [key: string]: boolean };
+  checkRoles: { [key: string]: string[] };
+  checkUserExceptions: { [key: string]: string[] };
+  checkRoleExceptions: { [key: string]: string[] };
+  removeRoleFromUserWithRoles: { [key: string]: string[] };
+  addRolesToUsersWithRoles: { [key: string]: string[] };
+  checkStrings: { [key: string]: string };
+  commandsRolePermissions: { [key: string]: RolesType };
+};
+```
+## logger
+f
+## modmail
+e
+## parseLogger
+d
+## pointLogger
+c
+## proxy
+b
+## realmEyeScrape
+a
+
 # Authentication
 
 > To authorize, use this code:
@@ -41,13 +131,14 @@ import kittn
 api = kittn.authorize('meowmeowmeow')
 ```
 
+
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here" \
   -H "Authorization: meowmeowmeow"
 ```
 
-```javascript
+```js
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');

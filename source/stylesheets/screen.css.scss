@@ -635,3 +635,49 @@ html, body {
 .copy-clipboard:hover {
   opacity: 0.8;
 }
+
+.content {
+  details.typedef {
+    padding: 0 42px;
+    width: calc(50% - 84px);
+    margin-bottom: 0.4em;
+    @extend %default-font;
+    summary {
+      font-size: 15px;
+      margin-bottom: 0.4em;
+      margin-right: 0;
+      display: block;
+      box-sizing: border-box;
+      font-weight: bold;
+      @extend %default-font;
+    }
+    & + .highlight .highlight {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    &::before {
+      border: solid black;
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      padding: 3px;
+    }
+    &:not([open]) {
+      & + .highlight .highlight { display: none; }
+      &::before {
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+      }
+    }
+    &[open]::before {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }  
+  }
+}
+
+@media (min-width: 701px) {
+  details.typedef + .highlight .highlight { 
+    margin-right: calc(50% + 42px) !important;
+    width: calc(50% - 84px) !important;     // May need to adjust this
+  }
+}
